@@ -8,7 +8,7 @@ load: POSTWORLD
 permissions:
   nchat.global:
     description: Доступ к глобальному чату
-    default: true
+    default: op
 
   nchat.minimessage:
     description: Доступ к MiniMessage форматированию

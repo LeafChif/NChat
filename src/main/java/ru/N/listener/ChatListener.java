@@ -64,7 +64,10 @@ public class ChatListener implements Listener {
             String nobody = plugin.getConfig().getString("local.nobody-nearby", "В радиусе %radius% не кого нету!").replace("%radius%", String.valueOf(radius));
 
 
-            var nearbyPlayers = player.getLocation().getNearbyPlayers(radius);
+            var nearbyPlayers = player.getLocation().getNearbyPlayers(
+                    radius,
+                    target -> !target.getUniqueId().equals(player.getUniqueId())
+            );
 
             sendFormattedMessage(player, messageL);
             if (nearbyPlayers.isEmpty()) {

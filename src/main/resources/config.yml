@@ -5,3 +5,7 @@ local:
 
 global:
   message: "G %player% » %message%"
+  trigger: "!"
+
+misc:
+  permission: "У вас нет прав!"

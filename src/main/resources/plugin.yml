@@ -5,3 +5,11 @@ version: '1.0'
 main: ru.N.Chat
 api-version: '26.2'
 load: POSTWORLD
+permissions:
+  nchat.global:
+    description: Доступ к глобальному чату
+    default: true
+
+  nchat.minimessage:
+    description: Доступ к MiniMessage форматированию
+    default: op

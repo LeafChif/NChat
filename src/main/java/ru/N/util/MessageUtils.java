@@ -7,10 +7,10 @@ import org.bukkit.entity.Player;
 public class MessageUtils {
 
     public static void sendFormattedMessage(Player player, String miniMessageText) {
-        MiniMessage mm = MiniMessage.miniMessage();
+            MiniMessage mm = MiniMessage.miniMessage();
 
-        Component parsedComponent = mm.deserialize(miniMessageText);
+            Component parsedComponent = mm.deserialize(miniMessageText);
 
-        player.sendMessage(parsedComponent);
+            player.sendMessage(parsedComponent);
     }
 }

@@ -1,7 +1,7 @@
 package ru.N;
 
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import ru.N.command.Commands;
 import ru.N.listener.ChatListener;
 
 
@@ -14,6 +14,7 @@ public final class Chat extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        registerCommand("nchat", new Commands(this));
 
 
         this.getServer().getPluginManager().registerEvents(new ChatListener(this), this);

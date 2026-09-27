@@ -13,3 +13,8 @@ permissions:
   nchat.minimessage:
     description: Доступ к MiniMessage форматированию
     default: op
+
+    nchat.reload:
+      default: op
+    nchat.clear:
+      default: op

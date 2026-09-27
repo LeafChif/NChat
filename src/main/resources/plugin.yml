@@ -1,0 +1,7 @@
+name: NChat
+description: Chat plugin
+version: '1.0'
+
+main: ru.N.Chat
+api-version: '26.2'
+load: POSTWORLD

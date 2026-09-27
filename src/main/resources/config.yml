@@ -1,0 +1,7 @@
+local:
+  radius: 100
+  message: "L %player% » %message%"
+  nobody-nearby: "В радиусе %radius% не кого нету!"
+
+global:
+  message: "G %player% » %message%"

@@ -85,7 +85,7 @@ public class ChatListener implements Listener {
 
             for (Player staff : Bukkit.getOnlinePlayers()) {
                 if (staff.hasPermission("nerovix.spy") && !nearbyPlayers.contains(staff)) {
-                    sendFormattedMessage(staff, messageLocal);
+                    sendFormattedMessage(staff, messageSpy);
                 }
             }
         });

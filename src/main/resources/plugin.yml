@@ -18,3 +18,5 @@ permissions:
       default: op
   nchat.spy:
     default: op
+  nchat.help:
+    default: op

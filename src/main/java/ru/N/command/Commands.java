@@ -20,14 +20,12 @@ public class Commands implements BasicCommand {
     public void execute(CommandSourceStack source, String[] args) {
 
         if (args.length == 0) {
-            source.getSender().sendMessage("NChat v1.0");
-            source.getSender().sendMessage("/nchat reload");
             return;
         }
 
         if (args[0].equalsIgnoreCase("reload")) {
             if (!(source.getSender() instanceof Player)) {
-                source.getSender().sendMessage("Команда только для игроков");
+                sendFormattedMessage((Player) source.getSender(), plugin.getConfig().getString("misc.only-player", "Команда только для игроков"));
                 return;
             }
             if (source.getSender().hasPermission("nchat.reload")) {
@@ -40,9 +38,10 @@ public class Commands implements BasicCommand {
 
             }
         }
+
         if (args[0].equalsIgnoreCase("clear")) {
             if (!(source.getSender() instanceof Player)) {
-                source.getSender().sendMessage("Команда только для игроков");
+                sendFormattedMessage((Player) source.getSender(), plugin.getConfig().getString("misc.only-player", "Команда только для игроков"));
                 return;
             }
             if (source.getSender().hasPermission("nchat.clear")) {
@@ -57,6 +56,21 @@ public class Commands implements BasicCommand {
             source.getSender().sendMessage("Чат был очищен");
             return;
         }
+
+        if (args[0].equalsIgnoreCase("help")) {
+            if (!(source.getSender() instanceof Player)) {
+                sendFormattedMessage((Player) source.getSender(), plugin.getConfig().getString("misc.only-player", "Команда только для игроков"));
+                return;
+            }
+            if (source.getSender().hasPermission("nchat.help")) {
+                sendFormattedMessage((Player) source.getSender(), plugin.getConfig().getString("misc.help", "Nerovix v1.0 " +
+                        "\n/nchat reload - перезагрузка конфига " +
+                        "\n/nchat clear - очистка чата"));
+                return;
+            }
+        }
+
+
         source.getSender().sendMessage("Неизвестная подкоманда.");
     }
 

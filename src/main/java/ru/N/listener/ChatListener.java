@@ -35,20 +35,22 @@ public class ChatListener implements Listener {
         Bukkit.getScheduler().runTask(plugin, () -> {
             String finalText;
 
+            String trigger = plugin.getConfig().getString("global.trigger", "!");
+
             if (player.hasPermission("nchat.minimessage")) {
                 finalText = text;
             } else {
                 finalText = MiniMessage.miniMessage().escapeTags(text);
             }
 
-            if (text.startsWith(plugin.getConfig().getString("global.trigger", "!")) && text.length() > 1) {
+            if (text.startsWith(trigger) && text.length() > trigger.length()) {
 
                 if (!player.hasPermission("nchat.global")) {
                     sendFormattedMessage(player, plugin.getConfig().getString("misc.permission", "У вас нет прав!"));
                     return;
                 }
 
-                String cleanText = finalText.substring(1);
+                String cleanText = finalText.substring(trigger.length());
 
                 String messageGlobal = plugin.getConfig().getString("global.message", "G %player% » %message%").replace("%message%", cleanText).replace("%player%", player.getName());
 
@@ -85,6 +87,9 @@ public class ChatListener implements Listener {
 
             for (Player staff : Bukkit.getOnlinePlayers()) {
                 if (staff.hasPermission("nerovix.spy") && !nearbyPlayers.contains(staff)) {
+                    if (staff == player) {
+                        continue;
+                    }
                     sendFormattedMessage(staff, messageSpy);
                 }
             }

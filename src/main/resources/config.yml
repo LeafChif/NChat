@@ -10,3 +10,7 @@ global:
 misc:
   permission: "У вас нет прав!"
   spy: "[SPY] %player% » %message%"
+  only-player: "Команда только для игроков"
+  help: "Nerovix v1.0 
+  \n/nchat reload - перезагрузка конфига 
+  \n/nchat clear - очистка чата"

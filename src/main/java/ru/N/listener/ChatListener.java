@@ -50,18 +50,21 @@ public class ChatListener implements Listener {
 
                 String cleanText = finalText.substring(1);
 
-                String messageG = plugin.getConfig().getString("global.message", "G %player% » %message%").replace("%message%", cleanText).replace("%player%", player.getName());
+                String messageGlobal = plugin.getConfig().getString("global.message", "G %player% » %message%").replace("%message%", cleanText).replace("%player%", player.getName());
 
                 for (Player players : Bukkit.getOnlinePlayers()) {
-                    sendFormattedMessage(players, messageG);
+                    sendFormattedMessage(players, messageGlobal);
 
                 }
                 return;
             }
 
-            String messageL = plugin.getConfig().getString("local.message", "L %player% » %message%").replace("%message%", finalText).replace("%player%", player.getName());
+            String messageLocal = plugin.getConfig().getString("local.message", "L %player% » %message%").replace("%message%", finalText).replace("%player%", player.getName());
+            String messageSpy = plugin.getConfig().getString("misc.spy", "[SPY] %player% » %message%").replace("%message%", finalText).replace("%player%", player.getName());
             int radius = plugin.getConfig().getInt("local.radius", 100);
             String nobody = plugin.getConfig().getString("local.nobody-nearby", "В радиусе %radius% не кого нету!").replace("%radius%", String.valueOf(radius));
+
+
 
 
             var nearbyPlayers = player.getLocation().getNearbyPlayers(
@@ -69,16 +72,22 @@ public class ChatListener implements Listener {
                     target -> !target.getUniqueId().equals(player.getUniqueId())
             );
 
-            sendFormattedMessage(player, messageL);
+            sendFormattedMessage(player, messageLocal);
+
             if (nearbyPlayers.isEmpty()) {
                 sendFormattedMessage(player, nobody);
-
                 return;
             }
+
             for (Player player1 : nearbyPlayers) {
-                sendFormattedMessage(player1, messageL);
+                sendFormattedMessage(player1, messageLocal);
             }
 
+            for (Player staff : Bukkit.getOnlinePlayers()) {
+                if (staff.hasPermission("nerovix.spy") && !nearbyPlayers.contains(staff)) {
+                    sendFormattedMessage(staff, messageLocal);
+                }
+            }
         });
     }
 }

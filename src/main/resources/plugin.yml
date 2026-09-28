@@ -9,12 +9,12 @@ permissions:
   nchat.global:
     description: Доступ к глобальному чату
     default: op
-
   nchat.minimessage:
     description: Доступ к MiniMessage форматированию
     default: op
-
-    nchat.reload:
+  nchat.reload:
       default: op
-    nchat.clear:
+  nchat.clear:
       default: op
+  nchat.spy:
+    default: op

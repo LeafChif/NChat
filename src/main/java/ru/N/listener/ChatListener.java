@@ -78,7 +78,6 @@ public class ChatListener implements Listener {
 
             if (nearbyPlayers.isEmpty()) {
                 sendFormattedMessage(player, nobody);
-                return;
             }
 
             for (Player player1 : nearbyPlayers) {
@@ -86,7 +85,7 @@ public class ChatListener implements Listener {
             }
 
             for (Player staff : Bukkit.getOnlinePlayers()) {
-                if (staff.hasPermission("nerovix.spy") && !nearbyPlayers.contains(staff)) {
+                if (staff.hasPermission("nchat.spy") && !nearbyPlayers.contains(staff)) {
                     if (staff == player) {
                         continue;
                     }

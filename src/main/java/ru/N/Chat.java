@@ -7,8 +7,6 @@ import ru.N.listener.ChatListener;
 
 public final class Chat extends JavaPlugin {
 
-    public String name = "NChat";
-    public double version = 1.0;
 
 
     @Override
@@ -19,7 +17,7 @@ public final class Chat extends JavaPlugin {
 
         this.getServer().getPluginManager().registerEvents(new ChatListener(this), this);
         getComponentLogger().info("");
-        getComponentLogger().info("Запуск плагина " + name + " " + "версия " + version);
+        getComponentLogger().info("Запуск плагина " + getName() + " " + "версия " + getPluginMeta().getVersion());
         getComponentLogger().info("");
     }
 

@@ -4,10 +4,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 import ru.N.command.Commands;
 import ru.N.listener.ChatListener;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
 
 public final class Chat extends JavaPlugin {
 
 
+    public final Set<UUID> spyPlayers = new HashSet<>();
 
     @Override
     public void onEnable() {

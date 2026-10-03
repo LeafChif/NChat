@@ -85,7 +85,7 @@ public class ChatListener implements Listener {
             }
 
             for (Player staff : Bukkit.getOnlinePlayers()) {
-                if (staff.hasPermission("nchat.spy") && !nearbyPlayers.contains(staff)) {
+                if (staff.hasPermission("nchat.spy") && !nearbyPlayers.contains(staff) && plugin.spyPlayers.contains(staff.getUniqueId())) {
                     if (staff == player) {
                         continue;
                     }

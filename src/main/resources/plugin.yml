@@ -20,3 +20,5 @@ permissions:
     default: op
   nchat.help:
     default: op
+  nchat.chat.staff:
+    default: op

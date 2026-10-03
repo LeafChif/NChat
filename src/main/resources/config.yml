@@ -10,7 +10,13 @@ global:
 misc:
   permission: "У вас нет прав!"
   spy: "[SPY] %player% » %message%"
+
+commands:
+  spys: "Слежка за локальными сообщения успешно %state%"
   only-player: "Команда только для игроков"
   help: "%nchat-name% %nchat-version% 
   \n/nchat reload - перезагрузка конфига 
-  \n/nchat clear - очистка чата"
+  \n/nchat clear - очистка чата
+  \n/nchat schat - стафф чат"
+  schat: "[SChat] %player% » %message%"
+
